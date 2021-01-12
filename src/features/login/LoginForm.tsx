@@ -15,7 +15,7 @@ export const LoginForm: VFC = () => {
 
   const {register, handleSubmit} = useForm<FormData>()
 
-  const [login, {loading}] = useLogin({
+  const [login, {loading, error}] = useLogin({
     onError: () => {},
   })
 
@@ -25,9 +25,9 @@ export const LoginForm: VFC = () => {
         username,
         password,
       },
-    }).then(({data}) => {
-      if (data?.user) {
-        authContext.login(data.user)
+    }).then((result) => {
+      if (result?.data?.user) {
+        authContext.login(result.data.user)
       }
     })
   }
@@ -46,6 +46,7 @@ export const LoginForm: VFC = () => {
         <button type="submit" disabled={loading}>
           Login
         </button>
+        {error ? <p>{error.message}</p> : null}
       </Stack>
     </form>
   )

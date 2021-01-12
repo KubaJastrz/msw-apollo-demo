@@ -1,20 +1,22 @@
 import {graphql} from 'msw'
 import {sleep} from 'utils/common'
+import {userDatabase} from 'mocks/data/users'
+import {CacheObject} from 'utils/types'
+import {User} from 'models/User'
 
 export const LoginHandlers = [
   graphql.mutation('Login', async (req, res, ctx) => {
-    const {username} = req.variables
+    const {username, password} = req.variables
 
     await sleep(1000)
 
-    if (username === 'invalid') {
+    const user = await userDatabase.authenticate({username, password})
+
+    if (!user) {
       return res(
         ctx.errors([
           {
-            message: 'User not found',
-            extensions: {
-              id: 'f79e82e8-c34a-4dc7-a49e-9fadc0979fda',
-            },
+            message: `User "${username}" not found`,
           },
         ]),
       )
@@ -24,10 +26,10 @@ export const LoginHandlers = [
       ctx.data({
         user: {
           __typename: 'User',
-          id: 'f79e82e8-c34a-4dc7-a49e-9fadc0979fda',
-          firstName: 'John',
-          lastName: 'Maverick',
-        },
+          id: user.id,
+          name: user.name,
+          username: user.username,
+        } as CacheObject<User>,
       }),
     )
   }),

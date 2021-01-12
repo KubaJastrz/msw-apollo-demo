@@ -5,8 +5,8 @@ const LOG_IN = gql`
     login(username: $username, password: $password) {
       user {
         id
-        firstName
-        lastName
+        name
+        username
       }
     }
   }
@@ -15,8 +15,8 @@ const LOG_IN = gql`
 interface UseLoginResponse {
   user: {
     id: string
-    firstName: string
-    lastName: string
+    name: string
+    username: string
   }
 }
 

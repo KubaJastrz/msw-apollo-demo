@@ -1,11 +1,6 @@
 import {useApolloClient} from '@apollo/client'
+import {User} from 'models/User'
 import {createContext, FC, useCallback, useContext, useState} from 'react'
-
-interface User {
-  id: string
-  firstName: string
-  lastName: string
-}
 
 interface AuthContextValue {
   isAuthorized: boolean
