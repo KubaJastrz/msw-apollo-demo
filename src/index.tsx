@@ -1,12 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import {App} from './App'
+import {App} from 'app/App'
+import {AppProviders} from 'app/AppProviders'
 import {reportWebVitals} from './reportWebVitals'
+
+if (process.env.NODE_ENV === 'development') {
+  const {worker} = require('./mocks/browser')
+  worker.start()
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppProviders>
+      <App />
+    </AppProviders>
   </React.StrictMode>,
   document.getElementById('root'),
 )
