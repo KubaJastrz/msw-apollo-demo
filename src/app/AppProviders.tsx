@@ -1,5 +1,6 @@
-import {FC} from 'react'
 import {ApolloProvider} from '@apollo/client'
+import {FC} from 'react'
+
 import {client} from './ApolloClient'
 import {AuthContextProvider} from './AuthContext'
 

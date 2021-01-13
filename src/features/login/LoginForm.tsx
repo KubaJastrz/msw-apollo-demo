@@ -1,9 +1,11 @@
 import {VFC} from 'react'
 import {useForm} from 'react-hook-form'
-import {Stack} from 'common/Layout'
-import classes from './LoginForm.module.css'
-import {useLogin} from './useLoginMutation'
+
 import {useAuthContext} from 'app/AuthContext'
+import {Stack} from 'common/Layout'
+
+import {useLogin} from './useLoginMutation'
+import classes from './LoginForm.module.css'
 
 interface FormData {
   username: string

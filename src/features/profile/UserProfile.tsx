@@ -1,5 +1,6 @@
-import {useAuthContext} from 'app/AuthContext'
 import {VFC} from 'react'
+
+import {useAuthContext} from 'app/AuthContext'
 
 export const UserProfile: VFC = () => {
   const {user, logout} = useAuthContext()

@@ -1,8 +1,9 @@
 import {graphql} from 'msw'
-import {sleep} from 'utils/common'
+
 import {userDatabase} from 'mocks/data/users'
-import {CacheObject} from 'utils/types'
 import {User} from 'models/User'
+import {sleep} from 'utils/common'
+import {CacheObject} from 'utils/types'
 
 export const LoginHandlers = [
   graphql.mutation('Login', async (req, res, ctx) => {

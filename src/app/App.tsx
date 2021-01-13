@@ -1,8 +1,10 @@
 import {VFC} from 'react'
-import classes from './App.module.css'
+
 import {LoginForm} from 'features/login'
 import {UserProfile} from 'features/profile'
+
 import {useAuthContext} from './AuthContext'
+import classes from './App.module.css'
 
 export const App: VFC = () => {
   const {isAuthorized} = useAuthContext()

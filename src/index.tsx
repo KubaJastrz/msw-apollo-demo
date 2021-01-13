@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+
 import {App} from 'app/App'
 import {AppProviders} from 'app/AppProviders'
+
 import {reportWebVitals} from './reportWebVitals'
+import './index.css'
 
 if (process.env.NODE_ENV === 'development') {
   const {worker} = require('./mocks/browser')
