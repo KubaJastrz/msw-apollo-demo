@@ -9,13 +9,11 @@
     "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
     "lint": "eslint --ext js,ts,tsx src",
     "format": "prettier --write --ignore-unknown .",
-    "check-types": "tsc --noEmit",
-    "validate": "yarn lint && yarn check-types && yarn test:coverage"
+    "check-types": "tsc --noEmit"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn test --watchAll=false"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
