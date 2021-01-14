@@ -26,8 +26,8 @@ module.exports = {
       'warn',
       {
         groups: [
-          // side effect imports
-          ['^\\u0000'],
+          // side effect imports (and styles)
+          ['^\\u0000', '^\\u0000.+\\.s?css$'],
           // external packages
           ['^@?\\w'],
           // internal packages
@@ -35,7 +35,7 @@ module.exports = {
           [
             // local imports
             '^\\.',
-            // styles
+            // local styles
             '^.+\\.s?css$',
           ],
         ],
